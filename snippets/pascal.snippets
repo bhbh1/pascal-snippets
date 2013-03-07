@@ -1,0 +1,93 @@
+#header
+snippet program
+	(*                                                                    *)
+	(*  programname: ${1:programName}
+	(*  author: ${2:author}
+	(*  creationdate: `system("date +%Y-%m-%d")`
+	(*  description: ${3}
+	(*
+	(*                                                                    *)
+	PROGRAM $1;
+	  USES
+	    Crt;
+	BEGIN (* $1 *)
+	  ${4}
+	END. (* $1 *)
+# if
+snippet if
+	IF (${1:condition}) THEN BEGIN
+	  ${2}		 
+	END; (* IF *)
+#elsif
+snippet elsif
+	END ELSE IF ${1:condition} BEGIN
+	  ${2}
+#else
+snippet else
+	END ELSE BEGIN
+	  ${1}
+#while
+snippet while
+	WHILE (${1:condition}) DO BEGIN
+	  ${2}	
+	END; (* WHILE *)
+#repeat
+snippet repeat
+	REPEAT
+	  ${2}
+	UNTIL (${1:condition});
+#for
+snippet for
+	FOR ${1:var} := ${2:start} TO ${3:end} DO BEGIN
+	  ${4}	
+	END; (* FOR *)
+#procedure
+snippet proc
+	PROCEDURE ${1:name}(${2:params});${3}
+	BEGIN (* $1 *);
+	  ${3}
+	END (* $1 *);
+#procedure-declaration (for units)
+snippet procd
+	PROCEDURE ${1:name}(${2:params});${3}
+#function
+snippet fun
+	FUNCTION ${1:name}(${2:params}) : ${3:returnType};
+	BEGIN (* $1 *);
+	  ${4}
+	END (* $1 *);
+#function-declaration (for units)
+snippet fund
+	FUNCTION ${1:name}(${2:params}) : ${3:returnType};
+#write string
+snippet ws
+	Write('${1}');${2}
+#write line
+snippet wl
+	WriteLn(${1});${2}
+#write line string
+snippet wls
+	WriteLn('${1}');${2}
+#record
+snippet record
+	${1} = RECORD
+	  ${2}
+	END; (* RECORD *)
+#unit
+snippet unit
+	UNIT ${1:name};
+	INTERFACE
+	  ${2}
+	IMPLEMENTATION
+	BEGIN (* $1 *)
+	END. (* $1 *)
+#array
+snippet arr
+	ARRAY [${1}] OF ${2:dataType};
+#comment
+snippet c
+	(* ${1} *)
+	${2}
+#type
+snippet type
+	TYPE ${1} = (${2:(*list of types, e.g. red, blue, green*)});

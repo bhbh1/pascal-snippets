@@ -4,7 +4,7 @@ pascal-snippets
 pascal-sourcefiles for snipmate
 
 licence
-===============
+---------------
 one line to give the program's name and a brief description
 Copyright 2013 Markus Schmidinger 
 

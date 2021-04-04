@@ -8,13 +8,13 @@ END.
 endsnippet
 
 snippet if "if" b
-IF (${1:condition}) THEN BEGIN
+IF (${1}) THEN BEGIN
 	${0:${VISUAL}}
 END; (* IF *)
 endsnippet
 
 snippet elsif "elsif"
-END ELSE IF ${1:condition} BEGIN
+END ELSE IF ${1} BEGIN
 	${0:${VISUAL}}
 endsnippet
 
@@ -24,7 +24,7 @@ END ELSE BEGIN
 endsnippet
 
 snippet while "while" b
-WHILE (${1:condition}) DO BEGIN
+WHILE (${1}) DO BEGIN
 	${0:${VISUAL}}
 END; (* WHILE *)
 endsnippet
@@ -32,7 +32,7 @@ endsnippet
 snippet repeat "repeat" b
 REPEAT
 	${0:${VISUAL}}
-UNTIL (${1:condition});
+UNTIL (${1});
 endsnippet
 
 snippet for "for" b

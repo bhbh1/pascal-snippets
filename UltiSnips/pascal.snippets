@@ -3,42 +3,42 @@ snippet p "program" b
 PROGRAM `!v expand("%:r")`;
 ${1}
 BEGIN
-${0}
+${0:${VISUAL}}
 END.
 endsnippet
 
 snippet if "if" b
 IF (${1:condition}) THEN BEGIN
-	  ${2}		 
-	END; (* IF *)
+	${0:${VISUAL}}
+END; (* IF *)
 endsnippet
 
 snippet elsif "elsif"
-	END ELSE IF ${1:condition} BEGIN
-	  ${2}
+END ELSE IF ${1:condition} BEGIN
+	${0:${VISUAL}}
 endsnippet
 
 snippet else "else"
 END ELSE BEGIN
-	  ${1}
+	${0:${VISUAL}}
 endsnippet
 
 snippet while "while" b
 WHILE (${1:condition}) DO BEGIN
-	  ${2}	
-	END; (* WHILE *)
+	${0:${VISUAL}}
+END; (* WHILE *)
 endsnippet
 
 snippet repeat "repeat" b
 REPEAT
-	  ${2}
-	UNTIL (${1:condition});
+	${0:${VISUAL}}
+UNTIL (${1:condition});
 endsnippet
 
 snippet for "for" b
 FOR ${1:var} := ${2:start} TO ${3:end} DO BEGIN
-	  ${4}	
-	END; (* FOR *)
+	${0:${VISUAL}}
+END; (* FOR *)
 endsnippet
 
 snippet proc "procedure" b
@@ -50,58 +50,68 @@ endsnippet
 
 snippet procd "procedure-declaration (for units)" b
 PROCEDURE ${1:name}(${2:params});
+=======
+PROCEDURE ${1:name}(${2:params});${3}
+BEGIN (* $1 *);
+	${0:${VISUAL}}
+END (* $1 *);
+endsnippet
+
+snippet procd "procedure-declaration (for units)" b
+PROCEDURE ${1:name}(${2:params});${0:${VISUAL}}
+>>>>>>> 70ea978... Last tabstops now use ${0} and ${VISUAL}
 endsnippet
 
 snippet fun "function" b
 FUNCTION ${1:name}(${2:params}) : ${3:returnType};
-	BEGIN
-	  ${4}
-	END (* $1 *);
+BEGIN (* $1 *);
+	${0:${VISUAL}}
+END (* $1 *);
 endsnippet
 
 snippet fund "function-declaration (for units)" b
-FUNCTION ${1:name}(${2:params}) : ${3:returnType};
+FUNCTION ${1:name}(${2:params}) : ${0:$:returnType};
 endsnippet
 
 snippet ws "write string" b
-Write('${1}');${2}
+Write('${0}');
 endsnippet
 
 snippet wl "write line" b
-WriteLn(${1});${2}
+WriteLn(${0});
 endsnippet
 
 snippet wls "write line string" b
-WriteLn('${1}');${2}
+WriteLn('${0}');
 endsnippet
 
 snippet record "record" b
 ${1} = RECORD
-	  ${2}
+	${0:${VISUAL}}
 	END; (* RECORD *)
 endsnippet
 
 snippet unit "unit" b
 UNIT ${1:name};
 	INTERFACE
-	  ${2}
+	${0:${VISUAL}}
 	IMPLEMENTATION
 	BEGIN (* $1 *)
 	END. (* $1 *)
 endsnippet
 
 snippet arr "array"
-ARRAY [${1}] OF ${2:dataType};
+ARRAY [${1}] OF ${0:${VISUAL}:dataType};
 endsnippet
 
 snippet c "comment"
-(* ${1} *)
+(* ${0:${VISUAL}} *)
 endsnippet
 
 snippet type "type" 
-	TYPE ${1} = (${2:(*list of types, e.g. red, blue, green*)});
+	TYPE ${1} = (${0:${VISUAL}:(*list of types, e.g. red, blue, green*)});
 endsnippet
 
 snippet var "var"
-	VAR ${1}
+	VAR ${0:${VISUAL}}
 endsnippet 

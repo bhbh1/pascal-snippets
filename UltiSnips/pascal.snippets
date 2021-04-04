@@ -13,9 +13,18 @@ IF (${1}) THEN BEGIN
 END; (* IF *)
 endsnippet
 
-snippet elsif "elsif"
+snippet ife "if else"
+IF (${1}) THEN BEGIN
+	${2}
+END ELSE BEGIN
+	${0}
+END;
+endsnippet
+
+snippet eif "else if"
 END ELSE IF ${1} BEGIN
 	${0:${VISUAL}}
+END;
 endsnippet
 
 snippet else "else"
